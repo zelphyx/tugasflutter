@@ -68,6 +68,7 @@ child: Column(
             fit: FlexFit.loose, // Use FlexFit.loose
             child: TextField(
               decoration: InputDecoration(
+                prefixIcon: Icon(Icons.people_rounded,color: Colors.white,),
                 hintText: 'Masukkan Username Anda',
                 border: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.white),
@@ -76,7 +77,7 @@ child: Column(
                   borderSide: BorderSide(color: Colors.white),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: BorderSide(color: Colors.red),
                 ),
                 fillColor: Colors.white, // Warna background input
               ),
@@ -98,6 +99,7 @@ child: Column(
             child: TextField(
               obscureText: true,
               decoration: InputDecoration(
+                prefixIcon: Icon(Icons.lock,color: Colors.white),
                 hintText: 'Masukkan Password Anda',
                 border: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.white),
@@ -106,7 +108,7 @@ child: Column(
                   borderSide: BorderSide(color: Colors.white),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: BorderSide(color: Colors.red),
                 ),
                 fillColor: Colors.white, // Warna background input
               ),
