@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loginfigma/register.dart';
 
 import 'main.dart';
 
@@ -130,7 +131,12 @@ class _loginState extends State<login> {
                 children: [
                   Expanded(
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => register()),
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
