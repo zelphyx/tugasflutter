@@ -15,6 +15,7 @@ class _MyButtonState extends State<MyButton> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: widget.onTap,
+
       child: Container(
         padding: const EdgeInsets.all(25),
         margin: const EdgeInsets.symmetric(horizontal: 25),

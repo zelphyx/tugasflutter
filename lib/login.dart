@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:loginfigma/homepage.dart';
 import 'package:loginfigma/register.dart';
 
-import 'main.dart';
-
-class login extends StatefulWidget {
-  const login({super.key});
+class Login extends StatefulWidget {
+  const Login({Key? key}) : super(key: key);
 
   @override
-  State<login> createState() => _loginState();
+  _LoginState createState() => _LoginState();
 }
 
-class _loginState extends State<login> {
+class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,46 +21,43 @@ class _loginState extends State<login> {
             end: Alignment.bottomRight,
           ),
         ),
-        child: Column(
-          children: [
-            SizedBox(height: 20), // Spasi untuk memisahkan judul dan gambar
-            CircleAvatar(
-              radius: 75, // Ukuran gambar akan dua kali lebih besar dari sebelumnya
-              backgroundImage: AssetImage('asset/pict.png'), // Ganti dengan path gambar profil
-            ),
-            SizedBox(height: 20),
-            Text(
-              'Login',
-              style: TextStyle(
-                color: Color(0xFFFB0CD5),
-                fontSize: 44,
-                fontFamily: 'Inter',
-                fontWeight: FontWeight.bold,
+        child: Center(
+          child: ListView(
+            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 50.0),
+            children: [
+              SizedBox(height: 20),
+              CircleAvatar(
+                radius: 75,
+                backgroundImage: AssetImage('asset/pict.png'),
               ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min, // Set to MainAxisSize.min
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Username',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 13,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w500,
+              SizedBox(height: 20),
+              Text(
+                'Login',
+                style: TextStyle(
+                  color: Color(0xFFFB0CD5),
+                  fontSize: 44,
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 40),
+              Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Username',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 13,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 10),
-                  Flexible(
-                    // Use Flexible instead of Expanded
-                    fit: FlexFit.loose, // Use FlexFit.loose
-                    child: TextField(
+                    SizedBox(height: 10),
+                    TextField(
                       decoration: InputDecoration(
                         prefixIcon: Icon(Icons.people_rounded, color: Colors.white),
                         hintText: 'Masukkan Username Anda',
@@ -74,25 +70,21 @@ class _loginState extends State<login> {
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.red),
                         ),
-                        fillColor: Colors.white, // Warna background input
+                        fillColor: Colors.white,
                       ),
                     ),
-                  ),
-                  SizedBox(height: 20),
-                  Text(
-                    'Password',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 13,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w500,
+                    SizedBox(height: 20),
+                    Text(
+                      'Password',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 13,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 10),
-                  Flexible(
-                    // Use Flexible instead of Expanded
-                    fit: FlexFit.loose, // Use FlexFit.loose
-                    child: TextField(
+                    SizedBox(height: 10),
+                    TextField(
                       obscureText: true,
                       decoration: InputDecoration(
                         prefixIcon: Icon(Icons.lock, color: Colors.white),
@@ -106,73 +98,81 @@ class _loginState extends State<login> {
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.red),
                         ),
-                        fillColor: Colors.white, // Warna background input
+                        fillColor: Colors.white,
                       ),
                     ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      // Add your "Forgot Password" functionality here
-                    },
+                    TextButton(
+                      onPressed: () {
+                        // Add your "Forgot Password" functionality here
+                      },
+                      child: Text(
+                        'Forgot Password',
+                        style: TextStyle(
+                          fontSize: 11,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 2, left: 40, right: 40, bottom: 10),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Home()), // Changed 'home()' to 'HomePage()'
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
+                        ),
+                        child: const Text('Login'),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(right: 10.0),
                     child: Text(
-                      'Forgot Password',
+                      'Belum memiliki akun?',
                       style: TextStyle(
                         fontSize: 11,
                         color: Colors.white,
                       ),
                     ),
                   ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 2, left: 40, right: 40, bottom: 10),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => register()),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
+                  GestureDetector( // Changed 'Text' to 'GestureDetector' for 'Daftar'
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Home()), // Changed 'register()' to 'Register()'
+                      );
+                    },
+                    child: Text(
+                      "Daftar",
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Color(0xFFFB0CD5),
+                        fontWeight: FontWeight.bold,
                       ),
-                      child: const Text('Login'),
                     ),
                   ),
                 ],
               ),
-            ),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(right: 10.0),
-                  child: Text(
-                    'Belum memiliki akun?',
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                Text(
-                  "Daftar",
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Color(0xFFFB0CD5),
-                    fontWeight: FontWeight.bold,
-                  ),
-                )
-              ],
-            )
-          ],
+            ],
+          ),
         ),
       ),
     );

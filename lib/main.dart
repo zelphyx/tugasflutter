@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 import 'package:loginfigma/login.dart';
 import 'package:loginfigma/register.dart';
 
